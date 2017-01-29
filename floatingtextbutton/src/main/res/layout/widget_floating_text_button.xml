@@ -6,7 +6,7 @@
         android:id="@+id/layout_button_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
+        android:layout_margin="3dp"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground">
 
