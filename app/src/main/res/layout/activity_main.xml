@@ -48,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_marginBottom="16dp"
+        app:layout_behavior="ru.dimorinny.floatingtextbutton.behavior.SnackbarBehavior"
         app:floating_background_color="?attr/colorPrimary"
         app:floating_icon="@drawable/ic_phone_white_24dp"
         app:floating_title="@string/call_button_title"
