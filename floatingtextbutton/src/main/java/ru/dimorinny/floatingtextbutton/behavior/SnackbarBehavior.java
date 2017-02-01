@@ -1,12 +1,18 @@
-package ru.dimorinny.floatingtextbutton.behaviour;
+package ru.dimorinny.floatingtextbutton.behavior;
 
+import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.util.AttributeSet;
 import android.view.View;
 
 import ru.dimorinny.floatingtextbutton.FloatingTextButton;
 
-public class SnackbarBehaviour extends CoordinatorLayout.Behavior<FloatingTextButton> {
+public class SnackbarBehavior extends CoordinatorLayout.Behavior<FloatingTextButton> {
+
+    public SnackbarBehavior(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
 
     @Override
     public boolean layoutDependsOn(
