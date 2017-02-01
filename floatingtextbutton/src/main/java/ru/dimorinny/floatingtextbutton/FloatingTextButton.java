@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -14,8 +15,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import ru.dimorinny.floatingtextbutton.behaviour.SnackbarBehaviour;
 import ru.dimorinny.floatingtextbutton.util.DimensionUtils;
 
+@CoordinatorLayout.DefaultBehavior(SnackbarBehaviour.class)
 public class FloatingTextButton extends FrameLayout {
 
     private CardView container;
