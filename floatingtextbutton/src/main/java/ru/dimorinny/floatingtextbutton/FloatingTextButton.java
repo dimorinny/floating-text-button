@@ -26,6 +26,8 @@ public class FloatingTextButton extends FrameLayout {
     private int titleColor;
     private Drawable icon;
     private int background;
+    private int horizontalPadding;
+    private int verticalPadding;
 
     public FloatingTextButton(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -61,6 +63,26 @@ public class FloatingTextButton extends FrameLayout {
         } else {
             iconView.setVisibility(GONE);
         }
+    }
+
+    public void setVerticalPadding(int verticalPadding) {
+        this.verticalPadding = verticalPadding;
+        container.setContentPadding(
+                getHorizontalPaddingValue(horizontalPadding),
+                getVerticalPaddingValue(this.verticalPadding),
+                getHorizontalPaddingValue(horizontalPadding),
+                getVerticalPaddingValue(this.verticalPadding)
+        );
+    }
+
+    public void setHorizontalPadding(int horizontalPadding) {
+        this.horizontalPadding = horizontalPadding;
+        container.setContentPadding(
+                getHorizontalPaddingValue(this.horizontalPadding),
+                getVerticalPaddingValue(verticalPadding),
+                getHorizontalPaddingValue(this.horizontalPadding),
+                getVerticalPaddingValue(verticalPadding)
+        );
     }
 
     @Override
@@ -100,6 +122,8 @@ public class FloatingTextButton extends FrameLayout {
         titleColor = styleable.getColor(R.styleable.FloatingTextButton_floating_title_color, Color.BLACK);
         icon = styleable.getDrawable(R.styleable.FloatingTextButton_floating_icon);
         background = styleable.getColor(R.styleable.FloatingTextButton_floating_background_color, Color.WHITE);
+        horizontalPadding = styleable.getInteger(R.styleable.FloatingTextButton_floating_vertical_padding, 8);
+        verticalPadding = styleable.getInteger(R.styleable.FloatingTextButton_floating_horizontal_padding, 16);
 
         styleable.recycle();
     }
@@ -111,10 +135,10 @@ public class FloatingTextButton extends FrameLayout {
         setBackgroundColor(background);
 
         container.setContentPadding(
-                getHorizontalPaddingValue(16),
-                getVerticalPaddingValue(8),
-                getHorizontalPaddingValue(16),
-                getVerticalPaddingValue(8)
+                getHorizontalPaddingValue(horizontalPadding),
+                getVerticalPaddingValue(verticalPadding),
+                getHorizontalPaddingValue(horizontalPadding),
+                getVerticalPaddingValue(verticalPadding)
         );
         initViewRadius();
     }
