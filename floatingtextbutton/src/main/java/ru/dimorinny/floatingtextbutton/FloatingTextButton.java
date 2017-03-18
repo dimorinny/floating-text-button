@@ -28,6 +28,7 @@ public class FloatingTextButton extends FrameLayout {
     private int background;
     private int horizontalPadding;
     private int verticalPadding;
+    private int titleSize;
 
     public FloatingTextButton(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -166,5 +167,14 @@ public class FloatingTextButton extends FrameLayout {
         } else {
             return DimensionUtils.dpToPx(getContext(), dp);
         }
+    }
+
+    public void setTitleSize(int titleSize) {
+        this.titleSize = titleSize;
+        titleView.setTextSize(titleSize);
+    }
+
+    public int getTitleSize() {
+        return titleSize;
     }
 }
