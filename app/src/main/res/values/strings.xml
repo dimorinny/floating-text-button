@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">FloatingSample</string>
-    <string name="call_button_title">Call user</string>
+    <string name="call_button_title">Phone</string>
     <string name="send_button_title">Send message</string>
     <string name="placeholder_title">Some profile data here</string>
+
 </resources>

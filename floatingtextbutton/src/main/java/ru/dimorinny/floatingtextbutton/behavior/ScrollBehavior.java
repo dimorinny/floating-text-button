@@ -7,20 +7,58 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Interpolator;
 
 import ru.dimorinny.floatingtextbutton.FloatingTextButton;
 
-public class SnackbarBehavior extends CoordinatorLayout.Behavior<FloatingTextButton> {
+public class ScrollBehavior extends CoordinatorLayout.Behavior<FloatingTextButton> {
 
-    private static final Interpolator HIDE_INTERPOLATOR = new FastOutSlowInInterpolator();
+
     private static final Long HIDE_DURATION = 250L;
-
+    private static final float TRANSLATION_HIDE = 500f;
+    private static final float TRANSLATION_SHOW = 0f;
     private ViewPropertyAnimatorCompat animation = null;
+    private static final Interpolator HIDE_INTERPOLATOR = new FastOutSlowInInterpolator();
 
-    public SnackbarBehavior(Context context, AttributeSet attrs) {
+    public ScrollBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+    @Override
+    public void onNestedScroll(CoordinatorLayout coordinatorLayout, FloatingTextButton child, View target, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+        super.onNestedScroll(coordinatorLayout, child, target, scrollX, scrollY, oldScrollX, oldScrollY);
+
+        if (scrollY > 0) {
+
+            hide(child);
+        } else if (scrollY < 0) {
+            show(child);
+        }
+    }
+
+    @Override
+    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, FloatingTextButton child, View directTargetChild, View target, int nestedScrollAxes) {
+        // Ensure we react to vertical scrolling
+        return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL
+                || super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target, nestedScrollAxes);
+    }
+
+    private void hide(FloatingTextButton floatingTextButton) {
+
+        animation = ViewCompat.animate(floatingTextButton)
+                .translationY(TRANSLATION_HIDE)
+                .setDuration(HIDE_DURATION);
+        animation.start();
+    }
+
+    private void show(FloatingTextButton floatingTextButton) {
+
+        animation = ViewCompat.animate(floatingTextButton)
+                .translationY(TRANSLATION_SHOW)
+                .setDuration(HIDE_DURATION);
+        animation.start();
     }
 
     @Override
