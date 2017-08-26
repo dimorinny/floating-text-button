@@ -85,7 +85,7 @@ public class ScrollBehavior extends CoordinatorLayout.Behavior<FloatingTextButto
         }
 
         child.setTranslationY(
-                Math.min(60f, dependency.getTranslationY() - dependency.getHeight())
+                Math.min(0f, dependency.getTranslationY() - dependency.getHeight())
         );
         return true;
     }
