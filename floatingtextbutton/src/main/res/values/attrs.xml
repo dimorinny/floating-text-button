@@ -5,5 +5,6 @@
         <attr name="floating_title" format="string|reference" />
         <attr name="floating_title_color" format="reference|color" />
         <attr name="floating_background_color" format="reference|color" />
+        <attr name="floating_title_size" format="dimension"/>
     </declare-styleable>
 </resources>

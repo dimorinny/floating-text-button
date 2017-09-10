@@ -8,6 +8,7 @@ import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -18,6 +19,8 @@ import ru.dimorinny.floatingtextbutton.util.DimensionUtils;
 
 public class FloatingTextButton extends FrameLayout {
 
+    private static final int DEFAULT_TEXT_SIZE = 12;
+
     private CardView container;
     private ImageView iconView;
     private TextView titleView;
@@ -26,6 +29,7 @@ public class FloatingTextButton extends FrameLayout {
     private int titleColor;
     private Drawable icon;
     private int background;
+    private int titleSize;
 
     public FloatingTextButton(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -44,6 +48,14 @@ public class FloatingTextButton extends FrameLayout {
         }
 
         titleView.setText(newTitle);
+    }
+
+    public void setTitleSize(int size){
+        if (size < 1) {
+            titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, DEFAULT_TEXT_SIZE);
+        } else {
+            titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+        }
     }
 
     public void setTitleColor(@ColorInt int color) {
@@ -100,6 +112,7 @@ public class FloatingTextButton extends FrameLayout {
         titleColor = styleable.getColor(R.styleable.FloatingTextButton_floating_title_color, Color.BLACK);
         icon = styleable.getDrawable(R.styleable.FloatingTextButton_floating_icon);
         background = styleable.getColor(R.styleable.FloatingTextButton_floating_background_color, Color.WHITE);
+        titleSize = styleable.getDimensionPixelSize(R.styleable.FloatingTextButton_floating_title_size, 0);
 
         styleable.recycle();
     }
@@ -109,6 +122,7 @@ public class FloatingTextButton extends FrameLayout {
         setTitleColor(titleColor);
         setIconDrawable(icon);
         setBackgroundColor(background);
+        setTitleSize(titleSize);
 
         container.setContentPadding(
                 getHorizontalPaddingValue(16),
