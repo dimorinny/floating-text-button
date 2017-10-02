@@ -46,21 +46,40 @@ public class FloatingTextButton extends FrameLayout {
         titleView.setText(newTitle);
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public void setTitleColor(@ColorInt int color) {
+        titleColor = color;
         titleView.setTextColor(color);
     }
 
+    public @ColorInt int getTitleColor() {
+        return titleColor;
+    }
+
     public void setBackgroundColor(@ColorInt int color) {
+        background = color;
         container.setCardBackgroundColor(color);
     }
 
+    public @ColorInt int getBackgroundColor() {
+        return background;
+    }
+
     public void setIconDrawable(Drawable drawable) {
+        icon = drawable;
         if (drawable != null) {
             iconView.setVisibility(VISIBLE);
             iconView.setImageDrawable(drawable);
         } else {
             iconView.setVisibility(GONE);
         }
+    }
+
+    public Drawable getIconDrawable() {
+        return icon;
     }
 
     @Override
@@ -83,9 +102,9 @@ public class FloatingTextButton extends FrameLayout {
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.widget_floating_text_button, this, true);
 
-        container = (CardView) view.findViewById(R.id.layout_button_container);
-        iconView = (ImageView) view.findViewById(R.id.layout_button_image);
-        titleView = (TextView) view.findViewById(R.id.layout_button_text);
+        container = view.findViewById(R.id.layout_button_container);
+        iconView = view.findViewById(R.id.layout_button_image);
+        titleView = view.findViewById(R.id.layout_button_text);
     }
 
     private void initAttributes(AttributeSet attrs) {
