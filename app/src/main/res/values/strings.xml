@@ -3,8 +3,8 @@
     <string name="call_button_title">Phone</string>
     <string name="send_button_title">Send message</string>
     <string name="placeholder_title">Some profile data here</string>
-
-
+    <string name="ScrollAwareBehaviour">ru.dimorinny.floatingtextbutton.behavior.ScrollAwareBehaviour</string>
+    <string name="SnackbarBehavior">ru.dimorinny.floatingtextbutton.behavior.SnackbarBehavior</string>
 
 
 </resources>

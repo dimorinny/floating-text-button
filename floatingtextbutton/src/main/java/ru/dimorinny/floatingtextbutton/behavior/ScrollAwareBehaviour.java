@@ -9,11 +9,13 @@ import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.animation.Interpolator;
 
 import ru.dimorinny.floatingtextbutton.FloatingTextButton;
 
-public class ScrollBehavior extends CoordinatorLayout.Behavior<FloatingTextButton> {
+public class ScrollAwareBehaviour extends CoordinatorLayout.Behavior<FloatingTextButton> {
 
 
     private static final Long HIDE_DURATION = 250L;
@@ -22,7 +24,7 @@ public class ScrollBehavior extends CoordinatorLayout.Behavior<FloatingTextButto
     private ViewPropertyAnimatorCompat animation = null;
     private static final Interpolator HIDE_INTERPOLATOR = new FastOutSlowInInterpolator();
 
-    public ScrollBehavior(Context context, AttributeSet attrs) {
+    public ScrollAwareBehaviour(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -31,7 +33,6 @@ public class ScrollBehavior extends CoordinatorLayout.Behavior<FloatingTextButto
         super.onNestedScroll(coordinatorLayout, child, target, scrollX, scrollY, oldScrollX, oldScrollY);
 
         if (scrollY > 0) {
-
             hide(child);
         } else if (scrollY < 0) {
             show(child);
@@ -46,6 +47,7 @@ public class ScrollBehavior extends CoordinatorLayout.Behavior<FloatingTextButto
     }
 
     private void hide(FloatingTextButton floatingTextButton) {
+
 
         animation = ViewCompat.animate(floatingTextButton)
                 .translationY(TRANSLATION_HIDE)

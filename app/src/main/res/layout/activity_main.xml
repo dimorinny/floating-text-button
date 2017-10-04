@@ -24,6 +24,6 @@
         app:floating_icon="@drawable/ic_phone_white_24dp"
         app:floating_title="@string/call_button_title"
         app:floating_title_color="@android:color/white"
-        app:layout_behavior="ru.dimorinny.floatingtextbutton.behavior.ScrollBehavior" />
+        app:layout_behavior="@string/ScrollAwareBehaviour" />
 
 </android.support.design.widget.CoordinatorLayout>
