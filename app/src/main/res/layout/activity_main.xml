@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -10,12 +11,40 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <LinearLayout
+        android:id="@+id/directory_empty_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_account_grey_116dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/placeholder_title"
+            android:textColor="@color/placeholder_color"
+            android:textSize="24sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
         android:orientation="horizontal">
 
         <ru.dimorinny.floatingtextbutton.FloatingTextButton
+            android:id="@+id/call_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
@@ -25,9 +54,10 @@
             app:floating_background_color="?attr/colorPrimary"
             app:floating_icon="@drawable/ic_phone_white_24dp"
             app:floating_title="@string/call_button_title"
-            app:floating_title_color="@android:color/white" />
+            app:floating_title_color="@android:color/white"/>
 
         <ru.dimorinny.floatingtextbutton.FloatingTextButton
+            android:id="@+id/send_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -37,6 +67,6 @@
             app:floating_background_color="?attr/colorPrimary"
             app:floating_icon="@drawable/ic_message_white_24dp"
             app:floating_title="@string/send_button_title"
-            app:floating_title_color="@android:color/white" />
+            app:floating_title_color="@android:color/white"/>
     </LinearLayout>
 </FrameLayout>
