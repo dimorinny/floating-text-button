@@ -49,3 +49,18 @@ For more complication usage - see [example](https://github.com/dimorinny/floatin
 ## Demo
 
 ![Demo](https://github.com/dimorinny/floating-text-button/blob/master/art/sample.gif?raw=true)
+
+If you want to use FloatingTextButton with snackbar, you should add `layout_behavior` attribute to your layout like this:
+
+```
+<ru.dimorinny.floatingtextbutton.FloatingTextButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_behavior="ru.dimorinny.floatingtextbutton.behavior.SnackbarBehavior"
+        app:floating_background_color="?attr/colorPrimary"
+        app:floating_icon="@drawable/ic_phone_white_24dp"
+        app:floating_title="@string/call_button_title"
+        app:floating_title_color="@android:color/white"/>
+```
+
+![Demo](https://github.com/dimorinny/floating-text-button/blob/master/art/sample_behavior.gif?raw=true)
