@@ -50,6 +50,8 @@ For more complication usage - see [example](https://github.com/dimorinny/floatin
 
 ![Demo](https://github.com/dimorinny/floating-text-button/blob/master/art/sample.gif?raw=true)
 
+## Use with snackbar
+
 If you want to use FloatingTextButton with snackbar, you should add `layout_behavior` attribute to your layout like this:
 
 ```
