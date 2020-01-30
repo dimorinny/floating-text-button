@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="FloatingTextButton">
-        <attr name="floating_icon" format="reference" />
+        <attr name="floating_left_icon" format="reference" />
+        <attr name="floating_right_icon" format="reference" />
         <attr name="floating_title" format="string|reference" />
         <attr name="floating_title_color" format="reference|color" />
         <attr name="floating_background_color" format="reference|color" />

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    android:id="@+id/container"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:id="@+id/directory_empty_view"
@@ -48,10 +49,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_marginBottom="16dp"
-        app:layout_behavior="ru.dimorinny.floatingtextbutton.behavior.SnackbarBehavior"
         app:floating_background_color="?attr/colorPrimary"
-        app:floating_icon="@drawable/ic_phone_white_24dp"
+        app:floating_left_icon="@drawable/ic_phone_white_24dp"
+        app:floating_right_icon="@drawable/ic_phone_white_24dp"
         app:floating_title="@string/call_button_title"
-        app:floating_title_color="@android:color/white"/>
+        app:floating_title_color="@android:color/white"
+        app:layout_behavior="ru.dimorinny.floatingtextbutton.behavior.SnackbarBehavior"
+        />
 
 </android.support.design.widget.CoordinatorLayout>

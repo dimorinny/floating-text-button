@@ -19,12 +19,14 @@ import ru.dimorinny.floatingtextbutton.util.DimensionUtils;
 public class FloatingTextButton extends FrameLayout {
 
     private CardView container;
-    private ImageView iconView;
+    private ImageView leftIconView;
+    private ImageView rightIconView;
     private TextView titleView;
 
     private String title;
     private int titleColor;
-    private Drawable icon;
+    private Drawable leftIcon;
+    private Drawable rightIcon;
     private int background;
 
     public FloatingTextButton(Context context, AttributeSet attrs) {
@@ -68,18 +70,32 @@ public class FloatingTextButton extends FrameLayout {
         return background;
     }
 
-    public void setIconDrawable(Drawable drawable) {
-        icon = drawable;
+    public void setLeftIconDrawable(Drawable drawable) {
+        leftIcon = drawable;
         if (drawable != null) {
-            iconView.setVisibility(VISIBLE);
-            iconView.setImageDrawable(drawable);
+            leftIconView.setVisibility(VISIBLE);
+            leftIconView.setImageDrawable(drawable);
         } else {
-            iconView.setVisibility(GONE);
+            leftIconView.setVisibility(GONE);
         }
     }
 
-    public Drawable getIconDrawable() {
-        return icon;
+    public void setRightIconDrawable(Drawable drawable) {
+        rightIcon = drawable;
+        if (drawable != null) {
+            rightIconView.setVisibility(VISIBLE);
+            rightIconView.setImageDrawable(drawable);
+        } else {
+            rightIconView.setVisibility(GONE);
+        }
+    }
+
+    public Drawable getLeftIconDrawable() {
+        return leftIcon;
+    }
+
+    public Drawable getRightIconDrawable() {
+        return rightIcon;
     }
 
     @Override
@@ -103,7 +119,10 @@ public class FloatingTextButton extends FrameLayout {
         View view = inflater.inflate(R.layout.widget_floating_text_button, this, true);
 
         container = view.findViewById(R.id.layout_button_container);
-        iconView = view.findViewById(R.id.layout_button_image);
+
+        leftIconView = view.findViewById(R.id.layout_button_image_left);
+        rightIconView = view.findViewById(R.id.layout_button_image_right);
+
         titleView = view.findViewById(R.id.layout_button_text);
     }
 
@@ -117,7 +136,8 @@ public class FloatingTextButton extends FrameLayout {
 
         title = styleable.getString(R.styleable.FloatingTextButton_floating_title);
         titleColor = styleable.getColor(R.styleable.FloatingTextButton_floating_title_color, Color.BLACK);
-        icon = styleable.getDrawable(R.styleable.FloatingTextButton_floating_icon);
+        leftIcon = styleable.getDrawable(R.styleable.FloatingTextButton_floating_left_icon);
+        rightIcon = styleable.getDrawable(R.styleable.FloatingTextButton_floating_right_icon);
         background = styleable.getColor(R.styleable.FloatingTextButton_floating_background_color, Color.WHITE);
 
         styleable.recycle();
@@ -126,7 +146,8 @@ public class FloatingTextButton extends FrameLayout {
     private void initView() {
         setTitle(title);
         setTitleColor(titleColor);
-        setIconDrawable(icon);
+        setLeftIconDrawable(leftIcon);
+        setRightIconDrawable(rightIcon);
         setBackgroundColor(background);
 
         container.setContentPadding(
