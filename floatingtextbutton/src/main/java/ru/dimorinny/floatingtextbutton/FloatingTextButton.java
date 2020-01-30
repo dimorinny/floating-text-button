@@ -168,6 +168,7 @@ public class FloatingTextButton extends FrameLayout {
         });
     }
 
+    @SuppressWarnings("SameParameterValue")
     private int getVerticalPaddingValue(int dp) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             return DimensionUtils.dpToPx(getContext(), dp) / 4;
@@ -176,6 +177,7 @@ public class FloatingTextButton extends FrameLayout {
         }
     }
 
+    @SuppressWarnings("SameParameterValue")
     private int getHorizontalPaddingValue(int dp) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             return DimensionUtils.dpToPx(getContext(), dp) / 2;
