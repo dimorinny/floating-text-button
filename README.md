@@ -24,7 +24,7 @@ Add dependency to your module's build.gradle file:
 
 ```
 dependencies {
-    compile 'com.github.dimorinny:floating-text-button:0.0.2'
+    compile 'com.github.dimorinny:floating-text-button:0.0.4'
 }
 ```
 
@@ -38,11 +38,13 @@ Add floating text button to your layout file like this:
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	app:floating_background_color="@color/color_action"
-	app:floating_icon="@drawable/ic_action_white_24dp"
+	app:floating_left_icon="@drawable/ic_action_white_24dp"
 	app:floating_title="@string/action_button_title"
 	app:floating_title_color="@android:color/white"
 	/>
 ```
+
+Also you can use `app:floating_right_icon` for adding icon to right side.
 
 For more complication usage - see [example](https://github.com/dimorinny/floating-text-button/tree/master/app/src/main).
 
